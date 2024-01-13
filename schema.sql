@@ -5,7 +5,7 @@ CREATE TABLE Item (
     description TEXT,
     price DECIMAL(10, 2),
     category VARCHAR(50),
-    weight DECIMAL(6, 2),
+    size INT,
     -- Add other item attributes as needed
 );
 
@@ -15,6 +15,7 @@ CREATE TABLE Location (
     location_name VARCHAR(255),
     description TEXT,
     capacity INT,
+    size_limit INT,
     location_type VARCHAR(50),
     -- Add other location attributes as needed
 );
