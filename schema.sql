@@ -1,11 +1,11 @@
 -- Item Table
 CREATE TABLE Item (
-    item_id INT PRIMARY KEY,
+    item_id VARCHAR(128) PRIMARY KEY,
     item_name VARCHAR(255),
     description TEXT,
     price DECIMAL(10, 2),
     category VARCHAR(50),
-    size INT,
+    size INT
     -- Add other item attributes as needed
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE Location (
 -- Inventory Table
 CREATE TABLE Inventory (
     inventory_id INT PRIMARY KEY,
-    item_id INT,
+    item_id VARCHAR(128),
     location_id INT,
     quantity INT,
     last_updated TIMESTAMP,
