@@ -32,7 +32,7 @@ CREATE TABLE Inventory (
 );
 
 -- User Table 
-CREATE TABLE users (
+CREATE TABLE Users (
     user_id SERIAL PRIMARY KEY,
     user_name VARCHAR(255) NOT NULL,
     user_email VARCHAR(255) UNIQUE NOT NULL
@@ -60,3 +60,7 @@ VALUES (1, '12345678901234567890123456789012', 1, 10, CURRENT_TIMESTAMP),
        (3, '34567890123456789012345678901234', 2, 30, CURRENT_TIMESTAMP),
        (4, '45678901234567890123456789012345', 2, 40, CURRENT_TIMESTAMP),
        (5, '56789012345678901234567890123456', 3, 50, CURRENT_TIMESTAMP);
+
+-- Interst data into Users Table 
+INSERT INTO Users (user_id,user_name,user_email)
+VALUES ('e465o6vrUAZfi3VZRHtNZv1wjfg2','Louis Stockton','louis.stockton@hotmail.co.uk)
