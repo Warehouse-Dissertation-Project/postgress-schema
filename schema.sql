@@ -31,6 +31,12 @@ CREATE TABLE Inventory (
     FOREIGN KEY (location_id) REFERENCES Location(location_id)
 );
 
+-- User Table 
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    user_name VARCHAR(255) NOT NULL,
+    user_email VARCHAR(255) UNIQUE NOT NULL
+);
 
 -- Insert data into Location table
 INSERT INTO Location (location_id, location_name, description, capacity, size_limit, location_type)
