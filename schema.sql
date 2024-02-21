@@ -32,10 +32,12 @@ CREATE TABLE Inventory (
 );
 
 -- User Table 
-CREATE TABLE Users (
+CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     user_name VARCHAR(255) NOT NULL,
-    user_email VARCHAR(255) UNIQUE NOT NULL
+    user_email VARCHAR(255) UNIQUE NOT NULL,
+    admin BOOLEAN NOT NULL DEFAULT FALSE,
+    disabled BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 -- Insert data into Location table
@@ -63,4 +65,4 @@ VALUES (1, '12345678901234567890123456789012', 1, 10, CURRENT_TIMESTAMP),
 
 -- Interst data into Users Table 
 INSERT INTO Users (user_id,user_name,user_email)
-VALUES ('e465o6vrUAZfi3VZRHtNZv1wjfg2','Louis Stockton','louis.stockton@hotmail.co.uk)
+VALUES ('e465o6vrUAZfi3VZRHtNZv1wjfg2','Louis Stockton','louis.stockton@hotmail.co.uk,true,false)
