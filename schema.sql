@@ -100,12 +100,12 @@ VALUES (1, '12345678901234567890123456789012', 1, 10, CURRENT_TIMESTAMP),
 -- Interst data into Users Table 
 INSERT INTO Users (user_id,user_name,user_email)
 VALUES ('e465o6vrUAZfi3VZRHtNZv1wjfg2','Louis Stockton','louis.stockton@hotmail.co.uk,true,false)
-
+'
 -- Insert data into Order table
 INSERT INTO "Order" (user_id, order_date, status)
-VALUES (e465o6vrUAZfi3VZRHtNZv1wjfg2, '2024-02-28 12:00:00', 'Processing'),
-       (e465o6vrUAZfi3VZRHtNZv1wjfg2, '2024-02-28 14:30:00', 'Shipped'),
-       (e465o6vrUAZfi3VZRHtNZv1wjfg2, '2024-02-28 16:45:00', 'Delivered');
+VALUES ('e465o6vrUAZfi3VZRHtNZv1wjfg2', '2024-02-28 12:00:00', 'Processing'),
+       ('e465o6vrUAZfi3VZRHtNZv1wjfg2', '2024-02-28 14:30:00', 'Shipped'),
+       ('e465o6vrUAZfi3VZRHtNZv1wjfg2', '2024-02-28 16:45:00', 'Delivered');
 
 -- Insert data into OrderItem table
 INSERT INTO OrderItem (order_id, item_id, quantity, price_per_unit)
@@ -117,6 +117,6 @@ VALUES (1, '12345678901234567890123456789012', 2, 50.00),
 
 -- Insert data into Invoice table
 INSERT INTO Invoice (order_id, user_id, total_amount)
-VALUES (1, e465o6vrUAZfi3VZRHtNZv1wjfg2, 170.00),
-       (2, e465o6vrUAZfi3VZRHtNZv1wjfg2, 540.00),
-       (3, e465o6vrUAZfi3VZRHtNZv1wjfg2, 330.00);
+VALUES (1, 'e465o6vrUAZfi3VZRHtNZv1wjfg2', 170.00),
+       (2, 'e465o6vrUAZfi3VZRHtNZv1wjfg2', 540.00),
+       (3, 'e465o6vrUAZfi3VZRHtNZv1wjfg2', 330.00);
