@@ -40,6 +40,40 @@ CREATE TABLE users (
     disabled BOOLEAN NOT NULL DEFAULT FALSE
 );
 
+-- Order Table
+CREATE TABLE Order (
+    order_id SERIAL PRIMARY KEY,
+    user_id INT,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(50) DEFAULT 'Pending',
+    -- Add other order attributes as needed
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- OrderItem Table
+CREATE TABLE OrderItem (
+    order_item_id SERIAL PRIMARY KEY,
+    order_id INT,
+    item_id VARCHAR(128),
+    quantity INT,
+    price_per_unit DECIMAL(10, 2),
+    -- Add other order item attributes as needed
+    FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
+    FOREIGN KEY (item_id) REFERENCES Item(item_id)
+);
+
+-- Invoice Table
+CREATE TABLE Invoice (
+    invoice_id SERIAL PRIMARY KEY,
+    order_id INT,
+    user_id INT,
+    invoice_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    total_amount DECIMAL(10, 2),
+    -- Add other invoice attributes as needed
+    FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
 -- Insert data into Location table
 INSERT INTO Location (location_id, location_name, description, capacity, size_limit, location_type)
 VALUES (1, 'Location A', 'This is location A', 100, 200, 'Warehouse'),
