@@ -43,7 +43,7 @@ CREATE TABLE users (
 -- Order Table
 CREATE TABLE Order (
     order_id SERIAL PRIMARY KEY,
-    user_id INT,
+    user_id VARCHAR,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(50) DEFAULT 'Pending',
     -- Add other order attributes as needed
