@@ -41,37 +41,36 @@ CREATE TABLE users (
 );
 
 -- Order Table
-CREATE TABLE Order (
-    order_id SERIAL PRIMARY KEY,
-    user_id VARCHAR,
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    status VARCHAR(50) DEFAULT 'Pending',
-    -- Add other order attributes as needed
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+CREATE TABLE "Order" (
+                         order_id VARCHAR PRIMARY KEY,
+                         user_id VARCHAR,
+                         order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                         status VARCHAR(50) DEFAULT 'Pending',
+                         FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 -- OrderItem Table
 CREATE TABLE OrderItem (
-    order_item_id SERIAL PRIMARY KEY,
-    order_id INT,
-    item_id VARCHAR(128),
-    quantity INT,
-    price_per_unit DECIMAL(10, 2),
+                           order_item_id VARCHAR PRIMARY KEY,
+                           order_id VARCHAR,
+                           item_id VARCHAR(128),
+                           quantity INT,
+                           price_per_unit DECIMAL(10, 2),
     -- Add other order item attributes as needed
-    FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
-    FOREIGN KEY (item_id) REFERENCES Item(item_id)
-);
+                           FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
+                           FOREIGN KEY (item_id) REFERENCES Item(item_id)
+);1
 
 -- Invoice Table
 CREATE TABLE Invoice (
-    invoice_id SERIAL PRIMARY KEY,
-    order_id INT,
-    user_id INT,
-    invoice_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total_amount DECIMAL(10, 2),
+                         invoice_id VARCHAR PRIMARY KEY,
+                         order_id VARCHAR,
+                         user_id VARCHAR,
+                         invoice_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                         total_amount DECIMAL(10, 2),
     -- Add other invoice attributes as needed
-    FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+                         FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
+                         FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 -- Insert data into Location table
