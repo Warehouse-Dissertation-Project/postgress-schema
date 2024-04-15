@@ -6,7 +6,6 @@ CREATE TABLE Item (
     price DECIMAL(10, 2),
     category VARCHAR(50),
     size INT
-    -- Add other item attributes as needed
 );
 
 -- Location Table
@@ -17,7 +16,6 @@ CREATE TABLE Location (
     capacity INT,
     size_limit INT,
     location_type VARCHAR(50),
-    -- Add other location attributes as needed
 );
 
 -- Inventory Table
@@ -56,7 +54,6 @@ CREATE TABLE OrderItem (
                            item_id VARCHAR(128),
                            quantity INT,
                            price_per_unit DECIMAL(10, 2),
-    -- Add other order item attributes as needed
                            FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
                            FOREIGN KEY (item_id) REFERENCES Item(item_id)
 );1
@@ -68,7 +65,6 @@ CREATE TABLE Invoice (
                          user_id VARCHAR,
                          invoice_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                          total_amount DECIMAL(10, 2),
-    -- Add other invoice attributes as needed
                          FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
                          FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
