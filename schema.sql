@@ -1,41 +1,41 @@
 -- Item Table
 CREATE TABLE Item (
-    item_id VARCHAR(128) PRIMARY KEY,
-    item_name VARCHAR(255),
-    description TEXT,
-    price DECIMAL(10, 2),
-    category VARCHAR(50),
-    size INT
+                      item_id VARCHAR(128) PRIMARY KEY,
+                      item_name VARCHAR(255),
+                      description TEXT,
+                      price DECIMAL(10, 2),
+                      category VARCHAR(50),
+                      size INT
 );
 
 -- Location Table
 CREATE TABLE Location (
-    location_id INT PRIMARY KEY,
-    location_name VARCHAR(255),
-    description TEXT,
-    capacity INT,
-    size_limit INT,
-    location_type VARCHAR(50),
+                          location_id INT PRIMARY KEY,
+                          location_name VARCHAR(255),
+                          description TEXT,
+                          capacity INT,
+                          size_limit INT,
+                          location_type VARCHAR(50)
 );
 
 -- Inventory Table
 CREATE TABLE Inventory (
-    inventory_id INT PRIMARY KEY,
-    item_id VARCHAR(128),
-    location_id INT,
-    quantity INT,
-    last_updated TIMESTAMP,
-    FOREIGN KEY (item_id) REFERENCES Item(item_id),
-    FOREIGN KEY (location_id) REFERENCES Location(location_id)
+                           inventory_id INT PRIMARY KEY,
+                           item_id VARCHAR(128),
+                           location_id INT,
+                           quantity INT,
+                           last_updated TIMESTAMP,
+                           FOREIGN KEY (item_id) REFERENCES Item(item_id),
+                           FOREIGN KEY (location_id) REFERENCES Location(location_id)
 );
 
--- User Table 
+-- User Table
 CREATE TABLE users (
-    user_id SERIAL PRIMARY KEY,
-    user_name VARCHAR(255) NOT NULL,
-    user_email VARCHAR(255) UNIQUE NOT NULL,
-    admin BOOLEAN NOT NULL DEFAULT FALSE,
-    disabled BOOLEAN NOT NULL DEFAULT FALSE
+                       user_id varchar PRIMARY KEY,
+                       user_name VARCHAR(255) NOT NULL,
+                       user_email VARCHAR(255) UNIQUE NOT NULL,
+                       admin BOOLEAN NOT NULL DEFAULT FALSE,
+                       disabled BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 -- Order Table
