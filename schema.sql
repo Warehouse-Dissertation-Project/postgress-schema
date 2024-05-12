@@ -60,13 +60,14 @@ CREATE TABLE OrderItem (
 
 -- Invoice Table
 CREATE TABLE Invoice (
-                         invoice_id VARCHAR PRIMARY KEY,
-                         order_id VARCHAR,
-                         user_id VARCHAR,
-                         invoice_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                         total_amount DECIMAL(10, 2),
-                         FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
-                         FOREIGN KEY (user_id) REFERENCES users(user_id)
+                          invoice_id VARCHAR PRIMARY KEY,
+                          order_id VARCHAR,
+                          user_id VARCHAR,
+                          invoice_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                          total_amount DECIMAL(10, 2),
+                          invoice_pdf BYTEA,
+                          FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
+                          FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 -- Insert data into Location table
