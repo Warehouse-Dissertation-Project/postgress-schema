@@ -66,6 +66,7 @@ CREATE TABLE Invoice (
                           invoice_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                           total_amount DECIMAL(10, 2),
                           invoice_pdf BYTEA,
+                          status VARCHAR(50) DEFAULT 'Pending',
                           FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
                           FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
