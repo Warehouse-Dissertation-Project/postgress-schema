@@ -56,22 +56,22 @@ CREATE TABLE OrderItem (
                            price_per_unit DECIMAL(10, 2),
                            FOREIGN KEY (order_id) REFERENCES "Order"(order_id),
                            FOREIGN KEY (item_id) REFERENCES Item(item_id)
-);1
+);
 
 -- Invoice Table
 CREATE TABLE Invoice (
-                          InvoiceID VARCHAR PRIMARY KEY,
-                          OrderID VARCHAR,
-                          UserID VARCHAR,
-                          TotalAmount DECIMAL(10, 2),
-                          InvoiceDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                          Status VARCHAR,
-                          PaymentMethod VARCHAR,
-                          PayeeName VARCHAR,
-                          PayeeAddress VARCHAR,
-                          PayeeEmail VARCHAR,
-                          FOREIGN KEY (OrderID) REFERENCES "Order"(order_id),
-                          FOREIGN KEY (UserID) REFERENCES users(user_id)
+                         InvoiceID VARCHAR PRIMARY KEY,
+                         OrderID VARCHAR,
+                         UserID VARCHAR,
+                         TotalAmount DECIMAL(10, 2),
+                         InvoiceDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                         Status VARCHAR,
+                         PaymentMethod VARCHAR,
+                         PayeeName VARCHAR,
+                         PayeeAddress VARCHAR,
+                         PayeeEmail VARCHAR,
+                         FOREIGN KEY (OrderID) REFERENCES "Order"(order_id),
+                         FOREIGN KEY (UserID) REFERENCES users(user_id)
 );
 
 -- Insert data into Location table
@@ -104,10 +104,10 @@ VALUES ('e465o6vrUAZfi3VZRHtNZv1wjfg2','Louis Stockton','louis.stockton@hotmail.
 
 
 -- Insert data into Order table
-    INSERT INTO "Order" (order_id,user_id, order_date, status)
+INSERT INTO "Order" (order_id,user_id, order_date, status)
 VALUES ('9462713855708036','e465o6vrUAZfi3VZRHtNZv1wjfg2', '2024-02-28 12:00:00', 'Processing'),
-        ('7061976255403917','e465o6vrUAZfi3VZRHtNZv1wjfg2', '2024-02-28 14:30:00', 'Shipped'),
-        ('7189893941311413','e465o6vrUAZfi3VZRHtNZv1wjfg2', '2024-02-28 16:45:00', 'Delivered');
+       ('7061976255403917','e465o6vrUAZfi3VZRHtNZv1wjfg2', '2024-02-28 14:30:00', 'Shipped'),
+       ('7189893941311413','e465o6vrUAZfi3VZRHtNZv1wjfg2', '2024-02-28 16:45:00', 'Delivered');
 
 -- Insert data into OrderItem table
 INSERT INTO OrderItem (order_item_id,order_id, item_id, quantity, price_per_unit)
@@ -118,7 +118,7 @@ VALUES ('0430361269473007','9462713855708036', '12345678901234567890123456789012
        ('0376004490057509','7189893941311413', '56789012345678901234567890123456', 2, 150.00);
 
 -- Insert data into Invoice table
-INSERT INTO Invoice (invoice_id,order_id, user_id, total_amount)
-VALUES ('0295165752283424','9462713855708036', 'e465o6vrUAZfi3VZRHtNZv1wjfg2', 170.00),
-       ('7027146136330243','7061976255403917', 'e465o6vrUAZfi3VZRHtNZv1wjfg2', 540.00),
-       ('6314088106823209','7189893941311413', 'e465o6vrUAZfi3VZRHtNZv1wjfg2', 330.00);
+INSERT INTO Invoice (InvoiceID, OrderID, UserID, TotalAmount)
+VALUES ('0295165752283424', '9462713855708036', 'e465o6vrUAZfi3VZRHtNZv1wjfg2', 170.00),
+       ('7027146136330243', '7061976255403917', 'e465o6vrUAZfi3VZRHtNZv1wjfg2', 540.00),
+       ('6314088106823209', '7189893941311413', 'e465o6vrUAZfi3VZRHtNZv1wjfg2', 330.00);
