@@ -1,0 +1,9 @@
+FROM postgres:latest
+
+ENV POSTGRES_USER=warehouseUser
+ENV POSTGRES_PASSWORD=warehousePassword
+ENV POSTGRES_DB=warehouseDB
+
+EXPOSE 5432
+
+CMD ["postgres"]
